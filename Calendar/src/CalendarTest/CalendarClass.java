@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 public class CalendarClass {
 
+	private static final int[] Maxday = {31,28,31,30,31,30,31,31,30,31,30,31};
+	
+	public int getMaxDayOfMonth(int month) {
+ 	return Maxday[month -1];
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(" 일 월  화  수 목  금 토");
 		System.out.println("---------------------");
@@ -18,10 +24,9 @@ public class CalendarClass {
 		
 		System.out.println("달을 입력하세요");
 		int month = scanner.nextInt();
-		
-		int[] MaxDays = {31,28,31,30,31,30,31,31,30,31,30,31};
-		
-		System.out.printf("%d월은 %d일 까지 있습니다.\n", month, MaxDays[month -1]);
+		CalendarClass Cal = new CalendarClass();
+		System.out.printf("%d월은 %d일 까지 있습니다.\n", month, Cal.getMaxDayOfMonth(month));
+		scanner.close();
 	}
 
 }
